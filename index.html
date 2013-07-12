@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+  <head>
+    <title>Welcome to WWMM7799!</title>
+  </head>
+  <body>
+    <h1>{{ greeting }}</h1>
+
+    <hr>
+
+    <a href="{{ url|safe }}">{{ url_linktext }}</a>
+
+  </body>
+</html>
+{% endautoescape %}

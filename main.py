@@ -14,19 +14,54 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import os
+import urllib2
+
+from google.appengine.api import users
+from google.appengine.ext import ndb
+
+import jinja2
 import webapp2
+
+JINJA_ENVIRONMENT = jinja2.Environment(
+    loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
+    extensions=['jinja2.ext.autoescape'])
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        self.response.write('Hello world!')
+        user_name = 'Guest'
+        user = users.get_current_user()
+        if user:
+            user_name = user.nickname()
+            url = users.create_logout_url(self.request.uri)
+            url_linktext = 'Logout'
+        else:
+            url = users.create_login_url(self.request.uri)
+            url_linktext = 'Login'
+        
+        template_values = {
+            'user_name': user_name,
+            'greeting': 'Hello, ' + user_name,
+            'url': url,
+            'url_linktext': url_linktext,
+        }
+        template = JINJA_ENVIRONMENT.get_template('index.html')
+        self.response.write(template.render(template_values))
 
 class LoginHandler(webapp2.RequestHandler):
     def get(self):
-        
-        pass
+        user = users.get_current_user()
+        if user:
+            self.redirect('/')
+        else:
+            self.redirect(users.create_login_url('/'))
 
     def post(self):
-        pass
+        user = users.get_current_user()
+        if user:
+            self.redirect('/')
+        else:
+            self.redirect(users.create_login_url('/'))
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
