@@ -36,8 +36,8 @@ class MainHandler(webapp2.RequestHandler):
             url = users.create_logout_url(self.request.uri)
             url_linktext = 'Logout'
         else:
-            url = users.create_login_url(self.request.uri)
-            url_linktext = 'Login'
+            self.redirect(users.create_login_url('/'))
+            return
         
         template_values = {
             'user_name': user_name,
