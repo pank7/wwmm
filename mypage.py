@@ -27,7 +27,7 @@ JINJA_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
     extensions=['jinja2.ext.autoescape'])
 
-class MainHandler(webapp2.RequestHandler):
+class MyPageHandler(webapp2.RequestHandler):
     def get(self):
         user = users.get_current_user()
         if user:
@@ -35,33 +35,16 @@ class MainHandler(webapp2.RequestHandler):
             logout_url = users.create_logout_url(self.request.uri)
             url_linktext = 'Logout'
         else:
-            self.redirect(users.create_login_url('/'))
+            self.redirect(users.create_login_url('/mypage'))
             return
         
         template_values = {
             'user_name': user_name,
-            'greeting': 'Hello, ' + user_name,
             'logout_url': logout_url,
         }
-        template = JINJA_ENVIRONMENT.get_template('index.html')
+        template = JINJA_ENVIRONMENT.get_template('mypage.html')
         self.response.write(template.render(template_values))
 
-class LoginHandler(webapp2.RequestHandler):
-    def get(self):
-        user = users.get_current_user()
-        if user:
-            self.redirect('/')
-        else:
-            self.redirect(users.create_login_url('/'))
-
-    def post(self):
-        user = users.get_current_user()
-        if user:
-            self.redirect('/')
-        else:
-            self.redirect(users.create_login_url('/'))
-
 app = webapp2.WSGIApplication([
-    ('/', MainHandler),
-    ('/login', LoginHandler),
+    ('/mypage', MyPageHandler),
 ], debug=True)
