@@ -2,22 +2,34 @@
 {% block title %}Welcome to WWMM7799 - PUBLISH, {{ user_name }}!{% endblock %}
 {% block first_message %}PUBLISH{% endblock %}
 {% block main_content %}
-<div class="span4">
-publish's content.
+<div class="span8">
+publish's content.<br />
+<div class="input-append">
+  <input class="span8" id="appendedDropdownButton" type="text">
+  <div class="btn-group">
+    <button class="btn dropdown-toggle" data-toggle="dropdown">
+      Action
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+      <li><a>A</a></li>
+      <li><a>B</a></li>
+    </ul>
+  </div>
+</div>
 </div>
 <div class="span4">
-publish's content.
-</div>
-<div class="span4">
-publish's content.
-</div>
-<div class="span4">
-publish's content.
-</div>
-<div class="span4">
-publish's content.
-</div>
-<div class="span4">
-publish's content.
+<form >
+  <fieldset>
+    <legend>Legend</legend>
+    <label>Label name</label>
+    <input type="text" placeholder="Type something…">
+    <span class="help-block">Example block-level help text here.</span>
+    <label class="checkbox">
+      <input type="checkbox"> Check me out
+    </label>
+    <button type="submit" class="btn">Submit</button>
+  </fieldset>
+</form>
 </div>
 {% endblock %}

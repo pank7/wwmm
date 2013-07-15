@@ -18,10 +18,10 @@
           <a class="brand" href="/">WWMM7799</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li {% if page == 'homepage' %}class="active"{% endif %}><a href="/">HOMEPAGE</a></li>
-              <li {% if page == 'publish' %}class="active"{% endif %}><a href="/publish">PUBLISH</a></li>
-              <li {% if page == 'message' %}class="active"{% endif %}><a href="/message">MESSAGE</a></li>
-              <li {% if page == 'mypage' %}class="active"{% endif %}><a href="/mypage">MY PAGE</a></li>
+              <li {% if page == 'homepage' %}class="active"{% endif %}><a href="/"><i class="icon-home"></i> HOMEPAGE</a></li>
+              <li {% if page == 'publish' %}class="active"{% endif %}><a href="/publish"><i class="icon-upload"></i> PUBLISH</a></li>
+              <li {% if page == 'message' %}class="active"{% endif %}><a href="/message"><i class="icon-inbox"></i> MESSAGE</a></li>
+              <li {% if page == 'mypage' %}class="active"{% endif %}><a href="/mypage"><i class="icon-user"></i> MY PAGE</a></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
                 <ul class="dropdown-menu">
@@ -46,7 +46,7 @@
       <div class="hero-unit">
 	<h3>{% block first_message %}{% endblock %}</h3>
       </div>
-      <div class="row">
+      <div class="row-fluid">
 	{% block main_content %}
 	{% endblock %}
       </div>
