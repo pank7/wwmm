@@ -36,7 +36,7 @@
               </li>
             </ul>
 	    <form class="navbar-form pull-right">
-              <a type="button" class="btn" href="{{ logout_url|safe }}">LOGOUT</a>
+              <a class="btn" href="{{ logout_url|safe }}">LOGOUT</a>
             </form>
           </div><!--/.nav-collapse -->
         </div>
@@ -44,12 +44,33 @@
     </div>
     <div class="container">
       <div class="hero-unit">
-	<h1>{% block first_message %}{% endblock %}</h1>
+	<h3>{% block first_message %}{% endblock %}</h3>
+      </div>
+      <div class="row">
+	{% block main_content %}
+	{% endblock %}
       </div>
       <hr/>
-      {% block main_content %}
-      {% endblock %}
+      <footer>
+	© pank7 & sherry99 2013
+	{% block footer %}{% endblock %}
+      </footer>
     </div>
   </body>
+  <script type="text/javascript">
+    var new_nav = new function() {};
+    var x;
+    var old_navigator = window.navigator;
+    for (x in navigator) {
+      if (typeof navigator[x] == 'function') {
+        eval("new_nav." + x + " = function() { return old_navigator." + x + "();};");
+      } else {
+        eval("new_nav." + x + " = navigator." + x + ";");
+      }
+    }
+    new_nav.userAgent = "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_3_2 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8H7 Safari/6533.18.5";
+    new_nav.vendor = "Apple, Inc.";
+    window.navigator = new_nav;
+  </script>
 </html>
 {% endautoescape %}
