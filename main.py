@@ -39,6 +39,7 @@ class MainHandler(webapp2.RequestHandler):
             return
         
         template_values = {
+            'page': 'homepage',
             'user_name': user_name,
             'greeting': 'Hello, ' + user_name,
             'logout_url': logout_url,

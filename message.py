@@ -39,6 +39,7 @@ class MessageHandler(webapp2.RequestHandler):
             return
         
         template_values = {
+            'page': 'message',
             'user_name': user_name,
             'logout_url': logout_url,
         }

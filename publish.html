@@ -1,33 +1,4 @@
-<!DOCTYPE html>
-{% autoescape true %}
-<html>
-  <head>
-    <title>Welcome to WWMM7799 - PUBLISH, {{ user_name }}!</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-  </head>
-  <body>
-    <h1>PUBLISH</h1>
-
-    <hr>
-
-    <a href="{{ logout_url|safe }}">Logout</a>
-
-    <hr>
-
-    The main content.
-
-    <hr>
-
-    |
-    <a href="/">HOMEPAGE</a> |
-    <a href="/publish">PUBLISH</a> |
-    <a href="/message">MESSAGE</a> |
-    <a href="/mypage">MY PAGE</a> |
-
-  </body>
-</html>
-{% endautoescape %}
+{% extends "base_layout.html" %}
+{% block title %}Welcome to WWMM7799 - PUBLISH, {{ user_name }}!{% endblock %}
+{% block first_message %}PUBLISH{% endblock %}
+{% block main_content %}publish's content.{% endblock %}

@@ -39,6 +39,7 @@ class PublishHandler(webapp2.RequestHandler):
             return
         
         template_values = {
+            'page': 'publish',
             'user_name': user_name,
             'logout_url': logout_url,
         }

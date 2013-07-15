@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %}</title>
+    {% include 'include_bootstrap.html' %}
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+	<div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/">WWMM7799</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li {% if page == 'homepage' %}class="active"{% endif %}><a href="/">HOMEPAGE</a></li>
+              <li {% if page == 'publish' %}class="active"{% endif %}><a href="/publish">PUBLISH</a></li>
+              <li {% if page == 'message' %}class="active"{% endif %}><a href="/message">MESSAGE</a></li>
+              <li {% if page == 'mypage' %}class="active"{% endif %}><a href="/mypage">MY PAGE</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Nav header</li>
+                  <li><a href="#">Separated link</a></li>
+                  <li><a href="#">One more separated link</a></li>
+                </ul>
+              </li>
+            </ul>
+	    <form class="navbar-form pull-right">
+              <a type="button" class="btn" href="{{ logout_url|safe }}">LOGOUT</a>
+            </form>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="hero-unit">
+	<h1>{% block first_message %}{% endblock %}</h1>
+      </div>
+      <hr/>
+      {% block main_content %}
+      {% endblock %}
+    </div>
+  </body>
+</html>
+{% endautoescape %}
