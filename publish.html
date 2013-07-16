@@ -3,33 +3,28 @@
 {% block first_message %}PUBLISH{% endblock %}
 {% block main_content %}
 <div class="span8">
-publish's content.<br />
-<div class="input-append">
-  <input class="span8" id="appendedDropdownButton" type="text">
-  <div class="btn-group">
-    <button class="btn dropdown-toggle" data-toggle="dropdown">
-      Action
-      <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu">
-      <li><a>A</a></li>
-      <li><a>B</a></li>
-    </ul>
+  <div class="fileupload fileupload-new" data-provides="fileupload">
+    <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;"></div>
+    <div>
+      <span class="btn btn-file"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input type="file" /></span>
+      <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+    </div>
   </div>
 </div>
-</div>
 <div class="span4">
-<form >
-  <fieldset>
-    <legend>Legend</legend>
-    <label>Label name</label>
-    <input type="text" placeholder="Type something…">
-    <span class="help-block">Example block-level help text here.</span>
-    <label class="checkbox">
-      <input type="checkbox"> Check me out
-    </label>
-    <button type="submit" class="btn">Submit</button>
-  </fieldset>
-</form>
+  <form >
+    <fieldset>
+      <legend>Legend</legend>
+      <label>Upload</label>
+      <span class="btn btn-file">Upload<input type="file" /></span>
+      <label>Label name</label>
+      <input type="text" placeholder="Type something…">
+      <span class="help-block">Example block-level help text here.</span>
+      <label class="checkbox">
+	<input type="checkbox"> Check me out
+      </label>
+      <button type="submit" class="btn">Submit</button>
+    </fieldset>
+  </form>
 </div>
 {% endblock %}
