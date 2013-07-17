@@ -9,6 +9,10 @@ handlers:
   static_files: favicon.ico
   upload: favicon\.ico
 
+- url: /robots.txt
+  static_files: robots\.txt
+  upload: robots\.txt
+
 - url: /css
   static_dir: css
 
@@ -17,6 +21,9 @@ handlers:
 
 - url: /js
   static_dir: js
+
+- url: /font
+  static_dir: font
 
 - url: /publish*
   script: publish.app
