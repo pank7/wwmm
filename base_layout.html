@@ -7,70 +7,79 @@
     {% include 'include_bootstrap.html' %}
   </head>
   <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-	<div class="container">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="brand" href="/">WWMM7799</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li {% if page == 'homepage' %}class="active"{% endif %}><a href="/"><i class="icon-home"></i> HOMEPAGE</a></li>
-              <li {% if page == 'publish' %}class="active"{% endif %}><a href="/publish"><i class="icon-upload"></i> PUBLISH</a></li>
-              <li {% if page == 'message' %}class="active"{% endif %}><a href="/message"><i class="icon-inbox"></i> MESSAGE</a></li>
-              <li {% if page == 'mypage' %}class="active"{% endif %}><a href="/mypage"><i class="icon-user"></i> MY PAGE</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li class="nav-header">Nav header</li>
-                  <li><a href="#">Separated link</a></li>
-                  <li><a href="#">One more separated link</a></li>
-                </ul>
-              </li>
-            </ul>
-	    <form class="navbar-form pull-right">
-              <a class="btn" href="{{ logout_url|safe }}">LOGOUT</a>
-            </form>
-          </div><!--/.nav-collapse -->
-        </div>
+    <div id="wrap">
+      <div class="navbar navbar-inverse navbar-fixed-top">
+	<div class="navbar-inner">
+	  <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="/">WWMM7799</a>
+            <div class="nav-collapse collapse">
+              <ul class="nav">
+		<li {% if page == 'homepage' %}class="active"{% endif %}><a href="/"><i class="icon-home"></i> HOMEPAGE</a></li>
+		<li {% if page == 'publish' %}class="active"{% endif %}><a href="/publish"><i class="icon-upload"></i> PUBLISH</a></li>
+		<li {% if page == 'message' %}class="active"{% endif %}><a href="/message"><i class="icon-inbox"></i> MESSAGE</a></li>
+		<li {% if page == 'mypage' %}class="active"{% endif %}><a href="/mypage"><i class="icon-user"></i> MY PAGE</a></li>
+		<li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li class="nav-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+		</li>
+              </ul>
+	      <form class="navbar-form pull-right">
+		<a class="btn" href="{{ logout_url|safe }}">LOGOUT</a>
+              </form>
+            </div><!--/.nav-collapse -->
+          </div>
+	</div>
       </div>
+      <div class="container">
+	<div class="hero-unit">
+	  <h3>{% block first_message %}{% endblock %}</h3>
+	</div>
+	<div class="row-fluid">
+	  {% block main_content %}
+	  {% endblock %}
+	</div>
+      </div>
+      <div id="push"></div>
     </div>
-    <div class="container">
-      <div class="hero-unit">
-	<h3>{% block first_message %}{% endblock %}</h3>
-      </div>
-      <div class="row-fluid">
-	{% block main_content %}
-	{% endblock %}
-      </div>
-      <hr/>
-      <footer>
-	© pank7 & sherry99 2013
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit">© pank7 & sherry99 2013</p>
 	{% block footer %}{% endblock %}
-      </footer>
+      </div>
     </div>
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <!-- responsive-nav -->
+    <!--
+    <script>
+      var navigation = responsiveNav("#nav", { // Selector: The ID of the wrapper
+        animate: true, // Boolean: Use CSS3 transitions, true or false
+        transition: 400, // Integer: Speed of the transition, in milliseconds
+        label: "Menu", // String: Label for the navigation toggle
+        insert: "after", // String: Insert the toggle before or after the navigation
+        customToggle: "", // Selector: Specify the ID of a custom toggle
+        openPos: "relative", // String: Position of the opened nav, relative or static
+        jsClass: "js", // String: 'JS enabled' class which is added to <html> el
+	init: function(){}, // Function: Init callback
+	open: function(){}, // Function: Open callback
+	close: function(){} // Function: Close callback
+      });
+    </script>
+    -->
   </body>
-  <script type="text/javascript">
-    var new_nav = new function() {};
-    var x;
-    var old_navigator = window.navigator;
-    for (x in navigator) {
-      if (typeof navigator[x] == 'function') {
-        eval("new_nav." + x + " = function() { return old_navigator." + x + "();};");
-      } else {
-        eval("new_nav." + x + " = navigator." + x + ";");
-      }
-    }
-    new_nav.userAgent = "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_3_2 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8H7 Safari/6533.18.5";
-    new_nav.vendor = "Apple, Inc.";
-    window.navigator = new_nav;
-  </script>
 </html>
 {% endautoescape %}
