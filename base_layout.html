@@ -43,14 +43,12 @@
           </div>
 	</div>
       </div>
-      <div class="container">
-	<div class="hero-unit">
+      <div class="container" style="text-shadow: 1px 1px 4px">
+	<div class="page-header">
 	  <h3>{% block first_message %}{% endblock %}</h3>
 	</div>
-	<div class="row-fluid">
-	  {% block main_content %}
-	  {% endblock %}
-	</div>
+	{% block main_content %}
+	{% endblock %}
       </div>
       <div id="push"></div>
     </div>

@@ -2,29 +2,33 @@
 {% block title %}Welcome to WWMM7799 - PUBLISH, {{ user_name }}!{% endblock %}
 {% block first_message %}PUBLISH{% endblock %}
 {% block main_content %}
-<div class="span8">
-  <div class="fileupload fileupload-new" data-provides="fileupload">
-    <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;"></div>
-    <div>
-      <span class="btn btn-file"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input type="file" /></span>
-      <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+<div class="row-fluid">
+  <div class="span4">
+    <legend>Legend</legend>
+    <div class="fileupload fileupload-new" data-provides="fileupload">
+      <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" /></div>
+      <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+      <div>
+	<span class="btn btn-file"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input type="file" /></span>
+	<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+      </div>
     </div>
   </div>
-</div>
-<div class="span4">
-  <form >
-    <fieldset>
-      <legend>Legend</legend>
-      <label>Upload</label>
-      <span class="btn btn-file">Upload<input type="file" /></span>
-      <label>Label name</label>
-      <input type="text" placeholder="Type something…">
-      <span class="help-block">Example block-level help text here.</span>
-      <label class="checkbox">
-	<input type="checkbox"> Check me out
-      </label>
-      <button type="submit" class="btn">Submit</button>
-    </fieldset>
-  </form>
+  <div class="span4">
+    <div data-spy="affix" data-offset-top="200">...</div>
+  </div>
+  <div class="span4">
+    <form >
+      <fieldset>
+	<label>Label name</label>
+	<input type="text" placeholder="Type something…">
+	<span class="help-block">Example block-level help text here.</span>
+	<label class="checkbox">
+	  <input type="checkbox"> Check me out
+	</label>
+	<button type="submit" class="btn">Submit</button>
+      </fieldset>
+    </form>
+  </div>
 </div>
 {% endblock %}

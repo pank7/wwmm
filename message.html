@@ -1,4 +1,10 @@
 {% extends "base_layout.html" %}
 {% block title %}Welcome to WWMM7799 - MESSAGE, {{ user_name }}!{% endblock %}
 {% block first_message %}MESSAGE{% endblock %}
-{% block main_content %}message's content.{% endblock %}
+{% block main_content %}
+<div class="row-fluid">
+  <div class="span12">
+    message's content.
+  </div>
+</div>
+{% endblock %}
